@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-const ImageSearch = () => {
+const ImageSearch = ({ setTerm }) => {
   const [text, setText] = useState(""); //입력내용
   const onSubmit = (e) => {
     e.preventDefault();
-    alert("검색 눌렀음");
+    setTerm(text.trim().replace(" ", "+"));
   };
   return (
     <div className="max-w-sm rounded overflow-hidden my-10 mx-auto">
