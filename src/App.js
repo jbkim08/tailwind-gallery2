@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ImageCard from "./components/ImageCard";
+import ImageSearch from "./components/ImageSearch";
 
 function App() {
   const [images, setImages] = useState([]); //이미지배열
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="container mx-auto my-7">
+      <ImageSearch />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {images.map((img) => (
           <ImageCard key={img.id} image={img} />
