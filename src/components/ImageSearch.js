@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ImageSearch = () => {
+  const [text, setText] = useState(""); //입력내용
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alert("검색 눌렀음");
+  };
   return (
     <div className="max-w-sm rounded overflow-hidden my-10 mx-auto">
-      <form className="max-w-md mx-auto">
+      <form onSubmit={onSubmit} className="max-w-md mx-auto">
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -29,6 +34,8 @@ const ImageSearch = () => {
             </svg>
           </div>
           <input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
             type="search"
             id="default-search"
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
