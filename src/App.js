@@ -4,7 +4,6 @@ import ImageSearch from "./components/ImageSearch";
 
 function App() {
   const [images, setImages] = useState([]); //이미지배열
-  const [isLoading, setIsLoding] = useState(true); //로딩중 상태
   const [term, setTerm] = useState("flowers"); //검색어
   //처음 시작시 이미지들을 받아서 images에 저장
   useEffect(() => {
@@ -20,6 +19,9 @@ function App() {
   return (
     <div className="container mx-auto my-7">
       <ImageSearch setTerm={setTerm} />
+      {images.length === 0 && (
+        <h1 className="text-5xl text-center mt-32">이미지가 없습니다.</h1>
+      )}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {images.map((img) => (
           <ImageCard key={img.id} image={img} />
